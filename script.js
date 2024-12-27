@@ -18,24 +18,24 @@ const playGame = function () {
     let keepPlaying = true;
 
     while (keepPlaying) {
-        
-        // ask user to choose
-        let Choice = window.prompt('Enter R, P, or S:');
 
-        if (!Choice) { // if user presses cancel, end function
+        // ask user to choose
+        let userChoice = window.prompt('Enter R, P, or S:');
+
+        if (!userChoice) { // if user presses cancel, end function
             return;
         }
 
         // convert to uppercase
-        Choice = Choice.toUpperCase();
+        userChoice = userChoice.toUpperCase();
 
         // check if user input is valid
-        if (!options.includes(Choice)) {
-            window.alert('Invlide input. Please choose again');
+        if (!options.includes(userChoice)) {
+            window.alert('Invalid input. Please choose again');
         } else {
-            if (Choice === 'R') {
+            if (userChoice === 'R') {
                 stats.count.rock++;
-            } else if (Choice === 'P') {
+            } else if (userChoice === 'P') {
                 stats.count.paper++;
             } else {
                 stats.count.scissors++;
