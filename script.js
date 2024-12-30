@@ -18,15 +18,13 @@ const playGame = function () {
     let keepPlaying = true;
 
     while (keepPlaying) {
-
         // ask user to choose
-        let userChoice = window.prompt('Enter R, P, or S:');
-
+        let userChoice = window.prompt('Enter (R)ock, (P)aper, or (S)cissors:');
         if (!userChoice) {
             return;
         }
 
-        // convert to uppercase
+        // convert to uppercase just in case
         userChoice = userChoice.toUpperCase();
 
         // check if user input is valid
