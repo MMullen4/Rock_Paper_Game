@@ -22,7 +22,7 @@ const playGame = function () {
         // ask user to choose
         let userChoice = window.prompt('Enter R, P, or S:');
 
-        if (!userChoice) { // if user presses cancel, end function
+        if (!userChoice) {
             return;
         }
 
@@ -41,30 +41,33 @@ const playGame = function () {
                 stats.count.scissors++;
             }
             // generate random index for computer choice
+            // math.floor rounds down to an integer
             const index = Math.floor(Math.random() * options.length);
             const compChoice = options[index];
 
+            window.alert(`The computer chose ${compChoice}`);
+
             // compare user choice and computer choice
-            if (choice === compChoice) {
+            if (userChoice === compChoice) {
                 stats.ties++; // adds to ties counter
-                window.alert(`You chose ${choice} and the computer chose ${compChoice}. It's a tie!`);
+                window.alert(`You chose ${userChoice} and the computer chose ${compChoice}. It's a tie!`);
             } else if ( // checks every condition for a win
-                (Choicehoice === 'R' && compChoice === 'S') ||
-                (Choice === 'P' && compChoice === 'R') ||
-                (Choice === 'S' && compChoice === 'P')
+                (userChoice === 'R' && compChoice === 'S') ||
+                (userChoice === 'P' && compChoice === 'R') ||
+                (userChoice === 'S' && compChoice === 'P')
             ) {
                 stats.wins++; // adds to wins
-                window.alert(`You win!`);
+                window.alert(`You win! The computer chose ${compChoice}`);
             } else {
                 stats.losses++; // adds to losses
-                window.alert(`You lose!`);
+                window.alert(`You lose! The computer chose ${compChoice}`);
             }
             // ask if they want to play again
             keepPlaying = window.confirm('Do you want to play again?');
         }
     }
     // display stats
-    window.alert(`Stats:
+    window.alert(`Your Stats:
     Wins: ${stats.wins}
     Lossses: ${stats.losses}
     Ties: ${stats.ties}
